@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - 8000:5173
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: [ "npm", "run", "dev", "--", "--host", "0.0.0.0" ]
