@@ -1,0 +1,15 @@
+#Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+#git
+.gitignore
+.github
+
+#General
+README.md
+package-lock.json
+LICENSE
+build
+node_modules
