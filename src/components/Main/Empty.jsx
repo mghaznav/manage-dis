@@ -1,5 +1,5 @@
-import noProjectImage from '../assets/no-projects.png'
-import Button from './Button';
+import noProjectImage from '../../assets/no-projects.png'
+import Button from '../General/Button';
 
 export default function Empty({onOpenAddProject}) {
   return (

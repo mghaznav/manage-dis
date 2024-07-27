@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "../General/Button";
 
 export default function Sidebar({
   projects,
