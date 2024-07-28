@@ -1,12 +1,12 @@
+import { useContext } from 'react';
+
+import { ProjectContext } from '../../store/ProjectContextProvider';
+
 import Tasks from '../Task/Tasks'
 
-export default function ViewProject({
-  project,
-  tasks,
-  onDeleteProject,
-  onAddTask,
-  onDeleteTask
-}) {
+export default function ViewProject({ project, tasks }) {
+  const { deleteProject } = useContext(ProjectContext);
+
   const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -21,7 +21,7 @@ export default function ViewProject({
             {project.title}
           </h1>
           <button
-            onClick={() => onDeleteProject(project.id)}
+            onClick={() => deleteProject(project.id)}
             className="text-stone-600 hover:text-stone-950"
           >
             Delete
@@ -34,8 +34,6 @@ export default function ViewProject({
       </header>
       <Tasks
         tasks={tasks}
-        onAdd={onAddTask}
-        onDelete={onDeleteTask}
       />
     </div>
   );

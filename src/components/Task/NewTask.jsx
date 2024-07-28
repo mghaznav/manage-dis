@@ -1,6 +1,9 @@
-import { useState } from "react"
+import { useState, useContext } from "react";
 
-export default function NewTask({onAdd}) {
+import { ProjectContext } from "../../store/ProjectContextProvider";
+
+export default function NewTask() {
+  const { addTask } = useContext(ProjectContext);
   const [enteredTask, setEnteredTask] = useState('');
 
   function handleChange(event) {
@@ -12,7 +15,7 @@ export default function NewTask({onAdd}) {
       return;
     }
 
-    onAdd(enteredTask)
+    addTask(enteredTask);
     setEnteredTask('');
   }
 

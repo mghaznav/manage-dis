@@ -1,18 +1,19 @@
+import { useContext } from "react";
+
+import { ProjectContext } from "../../store/ProjectContextProvider";
 import Button from "../General/Button";
 
-export default function Sidebar({
-  projects,
-  onOpenAddProject,
-  onSelectProject,
-  selectedProjectId
-}) {
+
+export default function Sidebar() {
+  const { projects, selectedProjectId, openAddProject, selectProject } = useContext(ProjectContext);
+
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
       <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
         Your Projects
       </h2>
       <div>
-        <Button onClick={onOpenAddProject} >
+        <Button onClick={openAddProject} >
           + Add Project
         </Button>
       </div>
@@ -29,7 +30,7 @@ export default function Sidebar({
           return (
             <li key={project.id} >
               <button
-                onClick={() => onSelectProject(project.id)}
+                onClick={() => selectProject(project.id)}
                 className={classes}
               >
                 {project.title}

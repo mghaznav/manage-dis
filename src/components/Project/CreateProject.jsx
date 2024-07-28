@@ -1,11 +1,14 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+
+import { ProjectContext } from "../../store/ProjectContextProvider";
 
 import Input from "../General/Input";
 import Modal from "../General/Modal";
 
-export default function CreateProject({saveProject, handleCancel}) {
-  const modal = useRef();
+export default function CreateProject() {
+  const { addProject, cancelAddProject } = useContext(ProjectContext);
 
+  const modal = useRef();
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -30,7 +33,7 @@ export default function CreateProject({saveProject, handleCancel}) {
       dueDate: enteredDueDate
     };
 
-    saveProject(project);
+    addProject(project);
   }
 
   return (
@@ -47,7 +50,7 @@ export default function CreateProject({saveProject, handleCancel}) {
           <li>
             <button
               className="py-2 text-stone-800 hover:text-stone-950"
-              onClick={handleCancel}
+              onClick={cancelAddProject}
             >
               Cancel
             </button>
